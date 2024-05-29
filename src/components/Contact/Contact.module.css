@@ -1,0 +1,29 @@
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  gap: 8px;
+}
+
+.deleteBtn {
+  background-color: rgb(65, 50, 50);
+  color: rgb(221, 210, 206);
+  margin-top: 8px;
+  width: 150px;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(107, 50, 50);
+  color: rgb(221, 210, 206);
+}
+
+.contactName {
+  text-overflow: ellipsis;
+  max-width: 150px;
+  overflow: hidden;
+}
