@@ -11,10 +11,13 @@
 }
 
 .deleteBtn {
+  border-radius: 4px;
+  height: 25px;
   background-color: rgb(65, 50, 50);
   color: rgb(221, 210, 206);
   margin-top: 8px;
   width: 150px;
+  border: 1px solid #0c311e;
 }
 
 .deleteBtn:hover {

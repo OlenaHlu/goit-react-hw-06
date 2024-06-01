@@ -14,9 +14,8 @@
   width: 300px;
   height: 40px;
   border-radius: 4px;
-  border-top: none;
   border-bottom: 1px solid #908181;
-  border-right: 1px solid #827c7c;
+  border: 1px solid #827c7c;
   outline: transparent;
 }
 

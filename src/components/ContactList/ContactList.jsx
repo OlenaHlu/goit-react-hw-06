@@ -8,7 +8,7 @@ const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filters = useSelector(selectNameFilter);
   const filteredContact = contacts.filter((contact) => {
-    if ("id" in contact && "name" in contact && "phone" in contact) {
+    if ("id" in contact && "name" in contact && "number" in contact) {
       if (
         typeof contact.id === "string" &&
         typeof contact.name === "string" &&
@@ -25,11 +25,7 @@ const ContactList = () => {
       {filteredContact.map((contact) => {
         return (
           <li className={css.contactList} key={contact.id}>
-            <Contact
-              id={contact.id}
-              name={contact.name}
-              number={contact.number}
-            />
+            <Contact id={contact.id} contact={contact} />
           </li>
         );
       })}
