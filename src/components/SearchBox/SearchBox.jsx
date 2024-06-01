@@ -1,8 +1,19 @@
 import { useId } from "react";
 import css from "./SearchBox.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { selectNameFilter } from "../../redux/filtersSlice";
+import { setStatusFilter } from "../../redux/filtersSlice";
 
-const SearchBox = ({ value, onSearch }) => {
+const SearchBox = () => {
   const searchId = useId();
+  const dispatch = useDispatch();
+  const filter = useSelector(selectNameFilter);
+
+  const handleSearch = (event) => {
+    const name = event.target.value.trim();
+    dispatch(setStatusFilter(name));
+  };
+
   return (
     <div className={css.serchForm}>
       <label className={css.searchTitle} htmlFor={searchId}>
@@ -12,8 +23,9 @@ const SearchBox = ({ value, onSearch }) => {
         className={css.serchInput}
         type="text"
         id={searchId}
-        value={value}
-        onChange={(event) => onSearch(event.target.value)}
+        value={filter}
+        onChange={handleSearch}
+        name="name"
       />
     </div>
   );

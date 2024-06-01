@@ -1,8 +1,15 @@
 import { RiUser6Fill } from "react-icons/ri";
 import { MdPhone } from "react-icons/md";
 import css from "./Contact.module.css";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
 
-const Contact = ({ contact: { id, name, number }, onDeleteContact }) => {
+const Contact = ({ id, name, number }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteContact(id));
+  };
   return (
     <div className={css.contactContainer}>
       <div className={css.contactItem}>
@@ -14,11 +21,7 @@ const Contact = ({ contact: { id, name, number }, onDeleteContact }) => {
         <p>{number}</p>
       </div>
 
-      <button
-        className={css.deleteBtn}
-        type="button"
-        onClick={() => onDeleteContact(id)}
-      >
+      <button className={css.deleteBtn} type="button" onClick={handleDelete}>
         Delete
       </button>
     </div>
